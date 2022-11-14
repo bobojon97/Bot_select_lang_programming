@@ -1,10 +1,10 @@
 import config
 import logging
 
-from aiogram.types import ReplyKeyboardRemove, InlineKeyboardMarkup
+from aiogram.types import ReplyKeyboardRemove
 from aiogram import Bot, Dispatcher, executor, types
 
-from keyboard import menu, web, soft, mob, choice
+from keyboard import menu, web, soft, mob
 
 bot  = Bot(token=config.TOKEN)
 dp = Dispatcher(bot)
@@ -25,13 +25,18 @@ async def send_mess(message: types.Message):
 async def front(message: types.Message):
 
     await message.answer(f"<b>{message.text}.</b> Крутая штука. Для того чтобы стать фронтенд разработчиком, надо изучить следующый технологии.\n"
-                            f"1) <b>HTML</b>\n https://html.com/ \n 2) <b>CSS</b>\n https://css.com/ \n3) <b>JS</b>\n https://learn.javascript.ru/", parse_mode='html', reply_markup=choice)
+                            f"1) <b>HTML</b>\n https://html.com/ \n 2) <b>CSS</b>\n https://css.com/ \n3) <b>JS</b>\n https://learn.javascript.ru/", parse_mode='html')
 
 @dp.message_handler(text="Back-end")
 async def front(message: types.Message):
 
     await message.answer(f" ОУ! <b>{message.text}.</b> Бэкендом надо узучить следующий технологии\n"
                             f"1) <b>Python</b>\n https://www.python.org/ \n 2) <b>Go</b>\n https://go.dev/ \n 3) <b>PHP</b>\n https://www.php.net/", parse_mode='html')
+
+@dp.message_handler(text="Начат тест заново")
+async def send_mess(message: types.Message):
+
+    await message.answer(f"<b>Вы начали тест заново</b>", parse_mode='html',  reply_markup=menu)
 
 
 @dp.message_handler(text="Создание игр")
@@ -70,6 +75,11 @@ async def front(message: types.Message):
 
     await message.answer(f"<b>{message.text}.</b>\nМогу рекомендовать тебя <b>Java</b>\n https://www.java.com/ru/", parse_mode='html')
 
+@dp.message_handler(text="Начат тест заново")
+async def send_mess(message: types.Message):
+
+    await message.answer(f"<b>Вы начали тест заново</b>.", parse_mode='html',  reply_markup=menu)
+
 @dp.message_handler(text="Мобильное приложение")
 async def send_mess(message: types.Message):
 
@@ -89,6 +99,11 @@ async def front(message: types.Message):
 async def front(message: types.Message):
 
     await message.answer(f"<b>{message.text}.</b>\nМогу рекомендовать тебя <b>Flutter</b>\n https://flutter.dev/", parse_mode='html')
+
+@dp.message_handler(text="Начат тест заново")
+async def send_mess(message: types.Message):
+
+    await message.answer(f"<b>Вы начали тест заново</b>.", parse_mode='html',  reply_markup=menu)
 
 
 if __name__ == "__main__":

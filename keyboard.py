@@ -1,17 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
 
 
-
-choice = InlineKeyboardMarkup(
-        inline_keyboard= [
-            [
-                InlineKeyboardButton(text="Начать тест заново", callback_data="menu")
-            ]
-        ]
-)
-
-
-menu = ReplyKeyboardMarkup(
+menu = ReplyKeyboardMarkup( row_width=2,
     keyboard=[
         [
             KeyboardButton(text="Веб разработка"),
@@ -36,7 +26,8 @@ web = ReplyKeyboardMarkup(
     keyboard= [
         [
             KeyboardButton(text="Front-end"),
-            KeyboardButton(text="Back-end")
+            KeyboardButton(text="Back-end"),
+            KeyboardButton(text="Начат тест заново")
         ]
     ],
     resize_keyboard=True
@@ -49,6 +40,7 @@ soft = ReplyKeyboardMarkup(
             KeyboardButton(text="Windows"),
             KeyboardButton(text="Mac"),
             KeyboardButton(text="Все платформы"),
+            KeyboardButton(text="Начат тест заново")
         ]
     ],
     resize_keyboard=True
@@ -60,6 +52,7 @@ mob = ReplyKeyboardMarkup(
             KeyboardButton(text="IOS"),
             KeyboardButton(text="Android"),
             KeyboardButton(text="Кроссплатформенный"),
+            KeyboardButton(text="Начат тест заново")
         ]
     ],
     resize_keyboard=True
